@@ -153,9 +153,13 @@ body._lock {
     color: #fff;
     transition: all 0.6s ease;
     text-align: center;
+    transition: all 0.5s ease;
 }
 
-
+.header__button:hover {
+    background-color: #fff;
+    color: #000;
+}
 
 @media (max-width: 1240px) {
     .header {
@@ -789,13 +793,18 @@ body._lock {
     color: #dcdbdb;
 }
 .banner__button {
-    background-color: transparent;
-    color: #ffffffcb;
-    border: 2px solid rgb(196, 196, 3);
+    background-color: #ffffff;
+    color: #000;
+    border: 2px solid #ffffff;
     border-radius: 8px;
     padding: 8px 15px;
     font-size: 20px;
     margin: 0 0 70px 0;
+    transition: all 0.5s ease;
+}
+.banner__button:hover {
+    background-color: #c0c0c0;
+    border: 2px solid #c0c0c0;
 }
 @media(max-width:1024px) {
     .main-banner {
@@ -856,6 +865,10 @@ body._lock {
     font-weight: 500;
     background-color: #353535;
     color: #fff;
+    transition: all 0.5s ease;
+}
+.rooms__block-button:hover {
+    background-color: #000000;
 }
 .rooms__block {
 
