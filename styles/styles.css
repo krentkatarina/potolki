@@ -1066,7 +1066,8 @@ body._lock {
 .modal-alert {
     position: absolute;
     bottom: -80px;
-    left: 30%;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 .modal-alert__container {
     max-width: 800px;
