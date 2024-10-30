@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="styles/nullstyles.css">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="icon" href="images/icons/favicon.ico" type="image/x-icon">
@@ -61,14 +62,15 @@
                 <div class="contacts__container-left">
                     <h2 class="contacts__title">Контакты</h2>
                         <div>
-                            <a title="Позвонить" class="contacts__link" href="tel:+375298769922">+375-29-876-99-22 (A1)</a>
+                            <a title="Позвонить" class="contacts__link" href="tel:+375298769922">+375-29-876-99-22 (MTS)</a>
+                            <a title="Позвонить" class="contacts__link" href="tel:+375445849922">+375-44-584-99-22 (A1)</a>
                             <a title="Написать" class="contacts__link" href="mailto:vaitepotolok@gmail.com">vaitepotolok@gmail.com</a>
                             <div class="time-block">
                                 <img src="images/time.png" alt="">
                                 <div class="time-block__content">
-                                    <p><span>Будни:</span> с 9.00 до 18.00</p>
-                                    <p><span>Суббота:</span> с 10.00 до 14.00</p>
-                                    <p><span>Воскресенье: </span>выходной</p>
+                                    <p><span>Будни:</span> с 8.00 до 22.00</p>
+                                    <p><span>Выходные и праздничные дни:</span> с 10.00 до 18.00</p>
+                        
                                 </div>
                             </div>
                             <p class="contacts__description">ООО «ВайтПотолок»</p>
@@ -100,11 +102,6 @@
                     <button class="form__button" id="sendButton">Заказать звонок</button>
                 </form>
             </div>
-            <div class="modal-alert inv">
-                <div class="modal-alert__container">
-                    <h2 id="title-send" class="modal-alert__title"></h2>
-                </div>
-            </div>
         </section>
         <section class="warn">
             <div class="warn__container">
@@ -124,14 +121,15 @@
                 </a>
             </div>
             <div class="footer__center">
-                <p class="footer__center-description">Будни: с 9.00 до 18.00</p>
-                <p class="footer__center-description">Суббота: с 10.00 до 14.00</p>
-                <p class="footer__center-description">Воскресенье: выходной</p>
+                <p class="footer__center-description">Будни: с 8.00 до 22.00</p>
+                <p class="footer__center-description">Выходные и праздничные дни: с 10.00 до 18.00</p>
+           
                 
 
             </div>
             <div class="footer__right">
-                <a class="footer__right-link" href="tel:+375298769922">+375-29-876-99-22 (A1)</a>
+                <a class="footer__right-link" href="tel:+375298769922">+375-29-876-99-22 (MTS)</a>
+                <a class="footer__right-link" href="tel:+375445849922">+375-44-584-99-22 (A1)</a>
                 <a class="footer__right-link" href="mailto:vaitepotolok@gmail.com">vaitepotolok@gmail.com</a>
                 <div class="footer__right-socials">
                     <a href="https://www.instagram.com" class="footer__right-social" title="instagram">
@@ -144,7 +142,7 @@
             </div>
         </div>
     </footer>
-
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
     <script src="script.js"></script>
     <script src="send.js"></script>
 </body>

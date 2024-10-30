@@ -11,43 +11,49 @@ if(iconMenu){
 
 
 
+const modal = document.getElementById("myModal");
+const modalImg = document.getElementById("modal-img");
+const closeBtn = document.querySelector(".close");
 
-  const modal = document.getElementById("myModal");
-  const modalImg = document.getElementById("modal-img");
-  const closeBtn = document.querySelector(".close");
+// Get all images in the gallery
+const galleryItems = document.querySelectorAll(".gallery-item img");
 
-  // Get all images in the gallery
-  const galleryItems = document.querySelectorAll(".gallery-item img");
-
-  // Open modal on image click
-  galleryItems.forEach((img) => {
-    img.addEventListener("click", (e) => {
-      modal.style.display = "flex";
-      modalImg.src = e.target.dataset.full;
-    });
+// Open modal on image click
+galleryItems.forEach((img) => {
+  img.addEventListener("click", (e) => {
+    modal.style.display = "flex";
+    modalImg.src = e.target.dataset.full;
+    document.body.classList.add("no-scroll");
   });
+});
 
-  // Close modal on close button click
-  if(closeBtn) {
-    closeBtn.addEventListener("click", () => {
+// Close modal on close button click
+if (closeBtn) {
+  closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
+    document.body.classList.remove("no-scroll");
   });
 }
 
-  // Close modal on outside click
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none";
-    }
-  });
+// Close modal on outside click (for desktop and mobile)
+const closeModal = (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+    document.body.classList.remove("no-scroll");
+  }
+};
 
-  const galleryItemsRooms = document.querySelectorAll(".rooms__block-image");
-  galleryItemsRooms.forEach((img) => {
-    img.addEventListener("click", (e) => {
-      modal.style.display = "flex";
-      modalImg.src = e.target.dataset.full;
-    });
+window.addEventListener("click", closeModal);
+window.addEventListener("touchstart", closeModal); // Добавляем для мобильных устройств
+
+// For the room images
+const galleryItemsRooms = document.querySelectorAll(".rooms__block-image");
+galleryItemsRooms.forEach((img) => {
+  img.addEventListener("click", (e) => {
+    modal.style.display = "flex";
+    modalImg.src = e.target.dataset.full;
   });
+});
 
 
 
@@ -209,3 +215,27 @@ if(faqCards) {
     });
   });
 }
+
+
+const targetElement = document.getElementById("main");
+const smoothScroll = () => {
+  window.scrollTo({
+    top: targetElement.offsetTop,
+    behavior: "smooth"
+  });
+};
+
+let isScrolled = false;
+const onScroll = () => {
+  isScrolled = true;
+};
+
+window.addEventListener("scroll", onScroll);
+setTimeout(() => {
+ 
+  if (!isScrolled) {
+    smoothScroll();
+  }
+ 
+  window.removeEventListener("scroll", onScroll);
+}, 2000);

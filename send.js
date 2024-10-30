@@ -3,7 +3,7 @@ document.getElementById('sendButton').addEventListener('click', function(event) 
     
     const botToken = '7973758732:AAFl28iVF6Aurcm2W9ZU2EQsFfDEb6xM8H8';
     
-    // const chatId = '494163141';529381533
+    // const chatId = '494163141';529381533 390013007
     const chatId = '494163141';
     const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
@@ -11,7 +11,6 @@ document.getElementById('sendButton').addEventListener('click', function(event) 
     const nameInput = document.getElementById('name');
 
     const value = nameInput.value + ', ' + phoneInput.value
-    const messageTitle = document.getElementById('title-send');
 
     const params = {
       chat_id: chatId,
@@ -35,17 +34,10 @@ document.getElementById('sendButton').addEventListener('click', function(event) 
          
           phoneInput.value = '';
           nameInput.value = '';
-          
-          const alert = document.querySelector('.modal-alert');
-          alert.classList.remove('inv')
-          setTimeout(() => {
-            alert.classList.add('inv')
-          }, 3000)
-          messageTitle.textContent = 'Спасибо за Вашу заявку! Мы скоро свяжемся с Вами.'
-  
+        
+          alertify.success('Cпасибо за Вашу заявку!')
         } else {
-          messageTitle.textContent = 'Ошибка при отправке сообщения.'
-          
+          alertify.error('Ошибка при отправке сообщения.')
         }
       })
       .catch(error => console.error('Ошибка:', error));
