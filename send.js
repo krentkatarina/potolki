@@ -4,7 +4,7 @@ document.getElementById('sendButton').addEventListener('click', function(event) 
     const botToken = '7973758732:AAFl28iVF6Aurcm2W9ZU2EQsFfDEb6xM8H8';
     
     // const chatId = '494163141';529381533 390013007
-    const chatId = '494163141';
+    const chatId = '390013007';
     const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
     const phoneInput = document.getElementById('phone');
