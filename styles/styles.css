@@ -839,9 +839,7 @@ body._lock {
     .banner__button {
         margin: 0 0 40px 0;
     }
-    .banner-arrow {
-        display: none;
-    }
+    
 }
 
 .rooms {

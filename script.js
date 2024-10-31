@@ -151,57 +151,24 @@ if(textured) {
 
 let flag1 = false;
 
-const show1 = document.getElementById('show-rooms1');
-if(show1) {
-  show1.addEventListener('click', function() {
-    const block1 = document.querySelector('.rooms-1');
-    const all1 = document.querySelector('.all-1');
-  
-    all1.classList.toggle('inv')
-    block1.classList.toggle('inv')
-   
-    if(show1.textContent === 'Скрыть') {
-      show1.textContent = 'Показать все'
-    } else {
-       show1.textContent = 'Скрыть'
-    }
-  });
-  
+function toggleRooms(buttonId, blockClass, allClass) {
+  const button = document.getElementById(buttonId);
+  if (button) {
+    button.addEventListener('click', function() {
+      const block = document.querySelector(`.${blockClass}`);
+      const all = document.querySelector(`.${allClass}`);
+
+      all.classList.toggle('inv');
+      block.classList.toggle('inv');
+      
+      button.textContent = button.textContent === 'Скрыть' ? 'Показать все' : 'Скрыть';
+    });
+  }
 }
 
-const show2 = document.getElementById('show-rooms2');
-if(show2) {
-  show2.addEventListener('click', function() {
-    const block2 = document.querySelector('.rooms-2');
-    const all2 = document.querySelector('.all-2');
-  
-    all2.classList.toggle('inv')
-    block2.classList.toggle('inv')
-   
-    if(show2.textContent === 'Скрыть') {
-      show2.textContent = 'Показать все'
-    } else {
-       show2.textContent = 'Скрыть'
-    }
-  });
-}
-
-const show3 = document.getElementById('show-rooms3');
-if(show3) {
-  show3.addEventListener('click', function() {
-    const block3 = document.querySelector('.rooms-3');
-    const all3 = document.querySelector('.all-3');
-  
-    all3.classList.toggle('inv')
-    block3.classList.toggle('inv')
-   
-    if(show3.textContent === 'Скрыть') {
-      show3.textContent = 'Показать все'
-    } else {
-       show3.textContent = 'Скрыть'
-    }
-  });
-}
+toggleRooms('show-rooms1', 'rooms-1', 'all-1');
+toggleRooms('show-rooms2', 'rooms-2', 'all-2');
+toggleRooms('show-rooms3', 'rooms-3', 'all-3');
 
 const faqCards = document.querySelectorAll(".accordion__content");
 if(faqCards) {
@@ -214,24 +181,25 @@ if(faqCards) {
 
 
 const targetElement = document.getElementById("main");
-const smoothScroll = () => {
-  window.scrollTo({
-    top: targetElement.offsetTop,
-    behavior: "smooth"
-  });
-};
 
-let isScrolled = false;
-const onScroll = () => {
-  isScrolled = true;
-};
+if (!window.location.pathname.endsWith("index.html")) { // Проверка, чтобы не выполнить на index.html
+  const smoothScroll = () => {
+    window.scrollTo({
+      top: targetElement.offsetTop,
+      behavior: "smooth"
+    });
+  };
 
-window.addEventListener("scroll", onScroll);
-setTimeout(() => {
- 
-  if (!isScrolled) {
-    smoothScroll();
-  }
- 
-  window.removeEventListener("scroll", onScroll);
-}, 2000);
+  let isScrolled = false;
+  const onScroll = () => {
+    isScrolled = true;
+  };
+
+  window.addEventListener("scroll", onScroll);
+  setTimeout(() => {
+    if (!isScrolled) {
+      smoothScroll();
+    }
+    window.removeEventListener("scroll", onScroll);
+  }, 2000);
+}
