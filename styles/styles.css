@@ -34,7 +34,7 @@ main {
     padding: 60px 0 0 0;
 }
 .main-banner {
-    
+    position: relative;
     background: url('../images/slider-1.jpg') 0 0/ cover no-repeat;   
     height: 100vh;
 
@@ -46,6 +46,7 @@ main {
     height: 100vh;
     background-color: #000000b2;
 }
+
 .main-banner__container {
     max-width: 1600px;
     margin: 0 auto;
@@ -54,7 +55,18 @@ main {
     position: relative;
     
 }
+@media(max-width:480px) {
+    .main-banner {
+        height: 100%;
+        padding: 0 0 30px 0;
+    
+    }
+    .main-banner::before {
 
+        height: 100%;
+        padding: 0 0 30px 0;
+    } 
+}
 
 .wrapper {
 
@@ -813,6 +825,7 @@ body._lock {
     font-size: 20px;
     margin: 0 0 70px 0;
     transition: all 0.5s ease;
+    text-align: center;
 }
 .banner__button:hover {
     background-color: #c0c0c0;
@@ -968,6 +981,12 @@ body._lock {
     margin: 0 0 50px 0;
     max-width: 900px;
     text-align: center;
+}
+@media(max-width:480px) {
+    .order__title {
+        font-size: 36px;
+        line-height: 40px;
+    }
 }
 .order__cards {
     display: flex;
@@ -1320,10 +1339,11 @@ body._lock {
 .description__container {
     max-width: 1100px;
     margin: 0 auto;
+    padding: 0 10px;
 }
 .description__text {
-    text-align: center;
-    /* text-indent: 70px; */
+    text-align: justify;
+    text-indent: 70px;
     color: #22253B;
     font-size: 20px;
     font-style: italic;
