@@ -70,80 +70,22 @@ const glossyCardsBlock = document.querySelector('.portfolio__cards-glossy');
 const satinCardsBlock = document.querySelector('.portfolio__cards-satin');
 const texturesCardsBlock = document.querySelector('.portfolio__cards-textures');
 
-if(all) {
-  all.addEventListener('click', function() {
-    allCards.classList.remove('inv');
-    matteCardsBlock.classList.add('inv');
-    glossyCardsBlock.classList.add('inv');
-    satinCardsBlock.classList.add('inv');
-    texturesCardsBlock.classList.add('inv');
-    all.classList.add('active');
-    matte.classList.remove('active');
-    glossy.classList.remove('active');
-    satin.classList.remove('active');
-    textured.classList.remove('active');
-});
+function handleTabClick(activeTab, activeBlock) {
+  // Скрыть все блоки и убрать класс active у всех табов
+  [allCards, matteCardsBlock, glossyCardsBlock, satinCardsBlock, texturesCardsBlock].forEach(block => block.classList.add('inv'));
+  [all, matte, glossy, satin, textured].forEach(tab => tab.classList.remove('active'));
+
+  // Показать выбранный блок и добавить класс active к выбранному табу
+  activeBlock.classList.remove('inv');
+  activeTab.classList.add('active');
 }
 
-if(matte) {
-  matte.addEventListener('click', function() {
-    matteCardsBlock.classList.remove('inv');
-    allCards.classList.add('inv');
-    glossyCardsBlock.classList.add('inv');
-    satinCardsBlock.classList.add('inv');
-    texturesCardsBlock.classList.add('inv');
-    matte.classList.add('active');
-    all.classList.remove('active');
-    glossy.classList.remove('active');
-    satin.classList.remove('active');
-    textured.classList.remove('active');
-})
-}
-if(glossy) {
-  glossy.addEventListener('click', function() {
-    matteCardsBlock.classList.add('inv');
-    allCards.classList.add('inv');
-    glossyCardsBlock.classList.remove('inv');
-    satinCardsBlock.classList.add('inv');
-    texturesCardsBlock.classList.add('inv');
-    matte.classList.remove('active');
-    all.classList.remove('active');
-
-    textured.classList.remove('active');
-    satin.classList.remove('active');
-    glossy.classList.add('active');
-});
-}
-
-if(satin) {
-  satin.addEventListener('click', function() {
-    matteCardsBlock.classList.add('inv');
-    allCards.classList.add('inv');
-    glossyCardsBlock.classList.add('inv');
-    satinCardsBlock.classList.remove('inv');
-    texturesCardsBlock.classList.add('inv');
-    matte.classList.remove('active');
-    all.classList.remove('active');
-    glossy.classList.remove('active');
-    textured.classList.remove('active');
-    satin.classList.add('active');
-});
-}
-
-if(textured) {
-  textured.addEventListener('click', function() {
-    matteCardsBlock.classList.add('inv');
-    allCards.classList.add('inv');
-    glossyCardsBlock.classList.add('inv');
-    satinCardsBlock.classList.add('inv');
-    texturesCardsBlock.classList.remove('inv');
-    matte.classList.remove('active');
-    all.classList.remove('active');
-    glossy.classList.remove('active');
-    satin.classList.remove('active');
-    textured.classList.add('active');
-});
-}
+// Назначение обработчиков событий для каждого таба
+if (all) all.addEventListener('click', () => handleTabClick(all, allCards));
+if (matte) matte.addEventListener('click', () => handleTabClick(matte, matteCardsBlock));
+if (glossy) glossy.addEventListener('click', () => handleTabClick(glossy, glossyCardsBlock));
+if (satin) satin.addEventListener('click', () => handleTabClick(satin, satinCardsBlock));
+if (textured) textured.addEventListener('click', () => handleTabClick(textured, texturesCardsBlock));
 
 
 
@@ -182,7 +124,7 @@ if(faqCards) {
 
 const targetElement = document.getElementById("main");
 
-if (!window.location.pathname.endsWith("index.html")) { // Проверка, чтобы не выполнить на index.html
+if (window.location.pathname !== "/") { 
   const smoothScroll = () => {
     window.scrollTo({
       top: targetElement.offsetTop,
